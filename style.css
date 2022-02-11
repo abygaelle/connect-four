@@ -22,30 +22,30 @@ body{
   background-color: lightcoral;
   flex-direction: column;
   margin: auto;
-  height: 80vh;
-  width: git ;
+  height: 90vh;
+  
 }
 
 div.grid{
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
-  justify-content: center;
+  /* justify-content: center; */
   border: 5px solid red;
   margin: auto;
   background-color: orange;
   width: 500px; 
-  gap: 10px;
-  
-  
+  /* gap: 10px; */
 }
 
 div{
   border: 50%;
   display: flex;
-  background-color: yellow;
+  background-color: rgb(70, 51, 134);
   padding: 25px;
   border-radius: 50%;
-  
+}
 
+h1, h2{
+  text-align: center;
 }
