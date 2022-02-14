@@ -23,7 +23,7 @@ const winningArrays = [
 const player1 = 1
 const player2 = -1
 /*-------------------------------- Variables --------------------------------*/
-let playerTurn, message, winner, circles, numOfTurns
+let playerTurn, message, winner, circles, numOfTurns, board
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -38,7 +38,7 @@ const messages = document.querySelector('#message')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-// boardCircles.forEach(circle => circle.addEventListener('click', handleClick))
+// boardCircles.forEach(circle => circle.addEventListener('click', boardClick))
 
 resetBtn.addEventListener('click', init)
 boardCircles.addEventListener('click', handleClick)
@@ -49,7 +49,7 @@ boardCircles.addEventListener('click', handleClick)
 init()
 
 function init() {
-  circles = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+  board = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
 
   playerTurn = 1
   numOfTurns = 0
@@ -64,11 +64,10 @@ function init() {
 
 }
 
-function handleClick (event){
-  const id = event.target.id
-  // .replace('cir','')
-  if (circles[id] === null){
-    circles[id] = playerTurn
+function boardClick (event){
+  const id = event.target.id.replace('cir','')
+  if (board[id] === null){
+    board[id] = playerTurn
     playerTurn *= -1
     numOfTurns += 1
 console.log(event.target.id)
@@ -86,22 +85,22 @@ function getWinner(){
     const b = winningArrays[i][1]
     const c = winningArrays[i][2]
     const d = winningArrays[i][3]
-      if(circles[a]+circles[b]+circles[c]+circles[d] === 4){
+      if(board[a]+board[b]+board[c]+board[d] === 4){
         message = 'Player 1 wins!'
       }
-      else if(circles[a]+circles[b]+circles[c]+circles[d] === -4){
+      else if(board[a]+board[b]+board[c]+board[d] === -4){
         message = 'Player 2 wins!'
       }
 
     if (numOfTurns === 42 && winner === null){
       message = "Oh tootles its a tie!"
-    }
+    } console.log(getWinner)
   }
 }
 
 function render() {
-    for (let i = 0; i < circles; i++){
-      if(circles[i] === 1){
+    for (let i = 0; i < board; i++){
+      if(board[i] === 1){
         boardCircles[i].textContent = 'Player1'
         boardCircles[i].style.backgroundColor ='orange'
       } else if (circles[i] === -1){
