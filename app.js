@@ -10,32 +10,56 @@ const winningArrays = [
   [1, 2, 3, 4], [2, 3, 4, 5], [7, 14, 21, 28], [8, 15, 22, 29], [9, 16, 23, 30], 
   [10, 17, 24, 31], [11, 18, 25, 32], [12, 19, 26, 33], [13, 20, 27, 34]
 ]
-console.log(winningArrays)
+// console.log(winningArrays)
 
-const p
+const player1 = 1
+const player2 = -1
 /*-------------------------------- Variables --------------------------------*/
-let plaerTurn, message, winner, circles, board numOfTurns
+let playerTurn, message, winner, circles, numOfTurns
 
 
 /*------------------------ Cached Element References ------------------------*/
 const resetBtn = document.querySelector('#reset-button')
-const gridCicrles = document.querySelectorAll('.cirlce')
+const boardArr = document.querySelector('.board')
 const messages = document.querySelector('#message')
+// const result = document.querySelectorAll()
+// const startButton = document.querySelectorAll()
 
 
 /*----------------------------- Event Listeners -----------------------------*/
-resetBtn.addEventListener('click', reset)
-gridCicrles.forEach(circle => circle.addEventListener('click', clickingBoard))
-
+resetBtn.addEventListener('click', init)
+boardArr.addEventListener('click', handleClick)
+// boardArr.addEventListener('click', handleClick)
+console.log(boardArr)
+// startButton.addEventListener('click' ())
 
 /*-------------------------------- Functions --------------------------------*/
 init()
 function init() {
+  gameboard = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+  playerTurn = 1
+  numOfTurns = 0
+  winner = null
+  messages.textContent = "Welcome to Connect Four! Click the button to start the game"
+  resetBtn.setAttribute('hidden', true)
+  render()
+  getWinner()
+  
 
 }
-function clickingBoard(){
-  
+function handleClick(evt){
+  const id = (evt.target.id)
 }
+
+// function clickingBoard(){
+
+// }
+
+function getWinner(){
+
+}
+
 function render() {
 
 }
