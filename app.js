@@ -38,10 +38,10 @@ const messages = document.querySelector('#message')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-boardCircles.forEach(circle => circle.addEventListener('click', handleClick))
+// boardCircles.forEach(circle => circle.addEventListener('click', handleClick))
 
 resetBtn.addEventListener('click', init)
-// boardArr.addEventListener('click', handleClick)
+boardCircles.addEventListener('click', handleClick)
 
 // startButton.addEventListener('click' ())
 
@@ -53,7 +53,7 @@ function init() {
 
   playerTurn = 1
   numOfTurns = 0
-  winner = null
+  winner = 0
 
   messages.textContent = "Welcome to Connect Four! Click the button to start the game"
   // resetBtn.setAttribute('hidden', true)
@@ -64,13 +64,14 @@ function init() {
 
 }
 
-function handleClick (evt){
-  const id = evt.target.id.replace('cir','')
+function handleClick (event){
+  const id = event.target.id
+  // .replace('cir','')
   if (circles[id] === null){
     circles[id] = playerTurn
     playerTurn *= -1
     numOfTurns += 1
-console.log(evt.target.id)
+console.log(event.target.id)
   getWinner()
   render()
 }
@@ -79,9 +80,24 @@ console.log(evt.target.id)
 
 // }
 
-// function getWinner(){
+function getWinner(){
+  for (let i = 0; i < winningArrays.length; i++){
+    const a = winningArrays[i][0]
+    const b = winningArrays[i][1]
+    const c = winningArrays[i][2]
+    const d = winningArrays[i][3]
+      if(circles[a]+circles[b]+circles[c]+circles[d] === 4){
+        message = 'Player 1 wins!'
+      }
+      else if(circles[a]+circles[b]+circles[c]+circles[d] === -4){
+        message = 'Player 2 wins!'
+      }
 
-// }
+    if (numOfTurns === 42 && winner === null){
+      message = "Oh tootles its a tie!"
+    }
+  }
+}
 
 function render() {
     for (let i = 0; i < circles; i++){
@@ -95,6 +111,8 @@ function render() {
         boardCircles[i].textContent = ""
         boardCircles[i].style.backgroundColor = 'white'
       }
-      }console.log("render invoked")
+      }
+      getWinner()
+      console.log("render invoked")
       
 }
