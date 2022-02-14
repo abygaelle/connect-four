@@ -28,7 +28,7 @@ let playerTurn, message, winner, circles, numOfTurns
 
 /*------------------------ Cached Element References ------------------------*/
 const resetBtn = document.querySelector('#reset-button')
-const boardArr = document.querySelector('.board')
+const boardCircles = document.querySelector('.circle')
 const messages = document.querySelector('#message')
 
 
@@ -37,38 +37,44 @@ const messages = document.querySelector('#message')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
+
+boardCircles.forEach(circle => circle.addEventListener('click', handleClick))
+
 resetBtn.addEventListener('click', init)
-boardArr.addEventListener('click', handleClick)
 // boardArr.addEventListener('click', handleClick)
-console.log(boardArr)
+
 // startButton.addEventListener('click' ())
 
 /*-------------------------------- Functions --------------------------------*/
 init()
+
 function init() {
-  gameboard = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+  circles = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
 
   playerTurn = 1
   numOfTurns = 0
   winner = null
+
   messages.textContent = "Welcome to Connect Four! Click the button to start the game"
-  resetBtn.setAttribute('hidden', true)
+  // resetBtn.setAttribute('hidden', true)
+  getWinner()
   render()
   // getWinner()
   
 
 }
 
-function handleClick(evt){
+function handleClick (evt){
   const id = evt.target.id.replace('cir','')
   if (circles[id] === null){
     circles[id] = playerTurn
     playerTurn *= -1
     numOfTurns += 1
+console.log(evt.target.id)
+  getWinner()
   render()
 }
 }
-
 // function clickingBoard(){
 
 // }
@@ -80,11 +86,14 @@ function handleClick(evt){
 function render() {
     for (let i = 0; i < circles; i++){
       if(circles[i] === 1){
-        boardArr[i].textContent = ''
+        boardCircles[i].textContent = 'Player1'
+        boardCircles[i].style.backgroundColor ='orange'
       } else if (circles[i] === -1){
-        boardArr[i].textContent = ''
+        boardCircles[i].textContent = 'player2'
+        boardCircles[i].style.backgroundColor ='pink'
       } else {
-        boardArr[i].textContent = ""
+        boardCircles[i].textContent = ""
+        boardCircles[i].style.backgroundColor = 'white'
       }
       }console.log("render invoked")
       
