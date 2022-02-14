@@ -26,7 +26,7 @@ body{
   
 }
 
-div.board{
+.board{
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
@@ -35,6 +35,7 @@ div.board{
   margin: auto;
   background-color: orange;
   width: 500px; 
+  padding: 0;
   /* gap: 10px; */
 }
 

@@ -30,6 +30,8 @@ let playerTurn, message, winner, circles, numOfTurns
 const resetBtn = document.querySelector('#reset-button')
 const boardArr = document.querySelector('.board')
 const messages = document.querySelector('#message')
+
+
 // const result = document.querySelectorAll()
 // const startButton = document.querySelectorAll()
 
@@ -60,7 +62,7 @@ function init() {
 function handleClick(evt){
   const id = evt.target.id.replace('cir','')
   if (circles[id] === null){
-    squares[id] = playerTurn
+    circles[id] = playerTurn
     playerTurn *= -1
     numOfTurns += 1
   render()
