@@ -17,7 +17,28 @@ html {
   font-size: 62.5%;
 }
 
-body{
+.board {
+  display: flex;
+  border: 1px solid;
+  height: 120px;
+  width: 140px;
+  flex-wrap: wrap;
+}
+
+.board div {
+  height: 20px;
+  width: 25px;
+  background-color: purple;
+}
+
+
+
+
+
+
+
+
+/* body{
   display: flex;
   background-color: lightcoral;
   flex-direction: column;
@@ -35,22 +56,22 @@ body{
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
   /* justify-content: center; */
-  grid-gap: 0vmin;
+  /* grid-gap: 0vmin; */
   /* margin: auto;
   background-color: orange;
   width: 500px; 
   padding: 0;
   gap: 10px; */
-}
+/* }
 
 div{
   border: 3px solid white;
   display: flex;
   /* background-color: rgb(70, 51, 134); */
-  padding: 25px;
+  /* padding: 25px;
   border-radius: 50%;
 }
 
 h1, h2{
   text-align: center;
-}
+/* } */ 

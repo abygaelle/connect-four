@@ -23,13 +23,14 @@ const winningArrays = [
 const player1 = 1
 const player2 = -1
 /*-------------------------------- Variables --------------------------------*/
-let playerTurn, message, winner, circles, numOfTurns, board
+let playerTurn, message, winner, numOfTurns, board
 
 
 /*------------------------ Cached Element References ------------------------*/
 const resetBtn = document.querySelector('#reset-button')
-const boardCircles = document.querySelector('.circle')
+const boardCircles = document.querySelector('.board')
 const messages = document.querySelector('#message')
+const circles = document.querySelectorAll('.circle')
 
 
 // const result = document.querySelectorAll()
@@ -64,7 +65,7 @@ function init() {
 
 }
 
-function boardClick (event){
+function handleClick (event){
   const id = event.target.id.replace('cir','')
   if (board[id] === null){
     board[id] = playerTurn
@@ -94,13 +95,13 @@ function getWinner(){
 
     if (numOfTurns === 42 && winner === null){
       message = "Oh tootles its a tie!"
-    } console.log(getWinner)
+    } 
   }
 }
 
 function render() {
-    for (let i = 0; i < board; i++){
-      if(board[i] === 1){
+    for (let i = 0; i < circles; i++){
+      if(circles[i] === 1){
         boardCircles[i].textContent = 'Player1'
         boardCircles[i].style.backgroundColor ='orange'
       } else if (circles[i] === -1){
