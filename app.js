@@ -31,6 +31,7 @@ const resetBtn = document.querySelector('#reset-button')
 const boardCircles = document.querySelector('.board')
 const messages = document.querySelector('#message')
 const circles = document.querySelectorAll('.circle')
+const startBtn = document.querySelector('#start-button')
 
 
 
@@ -58,7 +59,9 @@ function init() {
   winner = 0
 
   messages.textContent = "Welcome to Connect Four! Click the button to start the game"
-  // resetBtn.setAttribute('hidden', true)
+  resetBtn.setAttribute('hidden', true)
+  startBtn.removeAttribute('hidden')
+
   getWinner()
   render()
   // getWinner()
@@ -72,6 +75,8 @@ function handleClick (event){
     board[id] = playerTurn
     playerTurn *= -1
     numOfTurns += 1
+startBtn.setAttribute('hidden', true)
+resetBtn.removeAttribute('hidden')
 console.log(event.target.id)
   getWinner()
   render()
