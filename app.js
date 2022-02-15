@@ -58,23 +58,26 @@ function init() {
   numOfTurns = 0
   winner = 0
 
-  messages.textContent = "Welcome to Connect Four! Click the button to start the game"
+  messages.textContent = "Welcome to Connect Four! Click the button  to start the game"
   resetBtn.setAttribute('hidden', true)
   startBtn.removeAttribute('hidden')
-
-  getWinner()
   render()
-  // getWinner()
   
-
 }
 
 function handleClick (event){
-  const id = event.target.id.replace('cir','')
+  let id = event.target.id.replace('cir','')
+
   if (board[id] === null){
     board[id] = playerTurn
     playerTurn *= -1
     numOfTurns += 1
+  
+  if (playerTurn === 1 && !winner){
+      messages.textContent = "Player 1 turn"
+    } else if (playerTurn === -1 && !winner){
+      messages.textContent = "Player 2 turn"
+    }
 startBtn.setAttribute('hidden', true)
 resetBtn.removeAttribute('hidden')
 console.log(event.target.id)
@@ -83,13 +86,7 @@ console.log(event.target.id)
 }
 }
 
-function circleFromBottom(idx) {
-  for (let i = idx + 35; i <= 41 && i >= 0; i -= 7) {
-    if (board[i] === null) {
-      return i
-    }
-  }
-}
+
 
 function getWinner(){
   for (let i = 0; i < winningArrays.length; i++){
@@ -98,18 +95,19 @@ function getWinner(){
     const c = winningArrays[i][2]
     const d = winningArrays[i][3]
       if(board[a]+board[b]+board[c]+board[d] === 4){
-        message = 'Player 1 wins!'
+        messages.textContent = 'Player 1 wins!'
         winner = 'pink'
         console.log('pink wins')
       }
       else if(board[a]+board[b]+board[c]+board[d] === -4){
-        message = 'Player 2 wins!'
+        messages.textContent = 'Player 2 wins!'
         winner = 'cyan'
         console.log('cyan wins')
       }
-
-    if (numOfTurns === 42 && winner === null){
-        message = "Oh tootles its a tie!"
+      
+    if (numOfTurns === 41 && winner === null){
+        messages = "Oh tootles its a tie!"
+        console.log('tie')
     } 
   }
 }
@@ -125,14 +123,6 @@ function render() {
       }
       circles[idx].style.backgroundColor = circleColor
     })
-    if (playerTurn === 1 && !winner){
-      message = "Player 1 turn"
-    } else if (playerTurn === -1 && !winner){
-      message = "Player 2 turn"
-    }
-    
-      messages.textContent = message
       getWinner()
       console.log("render invoked")
-      
 }
