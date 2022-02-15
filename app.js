@@ -23,7 +23,7 @@ const winningArrays = [
 const player1 = 1
 const player2 = -1
 /*-------------------------------- Variables --------------------------------*/
-let playerTurn, message, winner, numOfTurns, board
+let playerTurn, message, winner, numOfTurns, board, circleColor, circle
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -100,18 +100,28 @@ function getWinner(){
 }
 
 function render() {
-    for (let i = 0; i < circles; i++){
-      if(circles[i] === 1){
-        boardCircles[i].textContent = 'Player1'
-        boardCircles[i].style.backgroundColor ='orange'
-      } else if (circles[i] === -1){
-        boardCircles[i].textContent = 'player2'
-        boardCircles[i].style.backgroundColor ='pink'
-      } else {
-        boardCircles[i].textContent = ""
-        boardCircles[i].style.backgroundColor = 'white'
+    // for (let i = 0; i < circles; i++){
+    //   if(circles[i] === 1){
+    //     boardCircles[i].textContent = 'Player1'
+    //     boardCircles[i].style.backgroundColor ='cyan'
+    //   } else if (circles[i] === -1){
+    //     boardCircles[i].textContent = 'player2'
+    //     boardCircles[i].style.backgroundColor ='pink'
+    //   } else {
+    //     boardCircles[i].textContent = ""
+    //     boardCircles[i].style.backgroundColor = 'white'
+    //   }
+    //   }
+    board.forEach((cir, idx) =>{
+      if (cir === 1) {
+        circleColor = 'pink'
+      } else if (cir === -1) {
+        circleColor = 'cyan'
+      } else if (cir === null){
+        circleColor = 'white'
       }
-      }
+      circles[idx].style.backgroundColor = circleColor
+    })
       getWinner()
       console.log("render invoked")
       
