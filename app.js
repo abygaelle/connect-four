@@ -23,7 +23,7 @@ const winningArrays = [
 const player1 = 1
 const player2 = -1
 /*-------------------------------- Variables --------------------------------*/
-let playerTurn, message, winner, numOfTurns, board, circleColor, circle
+let playerTurn, message, winner, numOfTurns, board, circleColor, circle, status
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -31,6 +31,7 @@ const resetBtn = document.querySelector('#reset-button')
 const boardCircles = document.querySelector('.board')
 const messages = document.querySelector('#message')
 const circles = document.querySelectorAll('.circle')
+
 
 
 // const result = document.querySelectorAll()
@@ -94,24 +95,12 @@ function getWinner(){
       }
 
     if (numOfTurns === 42 && winner === null){
-      message = "Oh tootles its a tie!"
+        message = "Oh tootles its a tie!"
     } 
   }
 }
 
 function render() {
-    // for (let i = 0; i < circles; i++){
-    //   if(circles[i] === 1){
-    //     boardCircles[i].textContent = 'Player1'
-    //     boardCircles[i].style.backgroundColor ='cyan'
-    //   } else if (circles[i] === -1){
-    //     boardCircles[i].textContent = 'player2'
-    //     boardCircles[i].style.backgroundColor ='pink'
-    //   } else {
-    //     boardCircles[i].textContent = ""
-    //     boardCircles[i].style.backgroundColor = 'white'
-    //   }
-    //   }
     board.forEach((cir, idx) =>{
       if (cir === 1) {
         circleColor = 'pink'
@@ -122,6 +111,13 @@ function render() {
       }
       circles[idx].style.backgroundColor = circleColor
     })
+    if (playerTurn === 1 && !winner){
+      message = "Player 1 turn"
+    } else if (playerTurn === -1 && !winner){
+      message = "Player 2 turn"
+    }
+    
+      messages.textContent = message
       getWinner()
       console.log("render invoked")
       

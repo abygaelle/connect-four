@@ -42,13 +42,10 @@ body {
   border: solid 5px rgb(161,130, 130);
 }
 
-cyanColor{
-  background-color: cyan;
+#reset-button {
+  font-size: 30px;
 }
 
-pinkColor{
-  background-color: pink;
-}
 
 
 
