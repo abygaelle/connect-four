@@ -82,9 +82,14 @@ console.log(event.target.id)
   render()
 }
 }
-// function clickingBoard(){
 
-// }
+function circleFromBottom(idx) {
+  for (let i = idx + 35; i <= 41 && i >= 0; i -= 7) {
+    if (board[i] === null) {
+      return i
+    }
+  }
+}
 
 function getWinner(){
   for (let i = 0; i < winningArrays.length; i++){
@@ -94,9 +99,13 @@ function getWinner(){
     const d = winningArrays[i][3]
       if(board[a]+board[b]+board[c]+board[d] === 4){
         message = 'Player 1 wins!'
+        winner = 'pink'
+        console.log('pink wins')
       }
       else if(board[a]+board[b]+board[c]+board[d] === -4){
         message = 'Player 2 wins!'
+        winner = 'cyan'
+        console.log('cyan wins')
       }
 
     if (numOfTurns === 42 && winner === null){
