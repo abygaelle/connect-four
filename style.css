@@ -17,19 +17,23 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 .board {
   display: flex;
   border: 1px solid;
-  height: 120px;
-  width: 140px;
+  height: 540px;
+  width: 630px;
+  background-color: blue;
+  border: 5px solid yellowgreen;
   flex-wrap: wrap;
+  margin: auto;
 }
 
-.board div {
-  height: 20px;
-  width: 25px;
-  background-color: purple;
-}
+
 
 
 
