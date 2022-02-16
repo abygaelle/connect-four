@@ -18,7 +18,7 @@ const winningArrays = [
   [2, 3, 4, 5], [7, 14, 21, 28], [8, 15, 22, 29], [9, 16, 23, 30], 
   [10, 17, 24, 31], [11, 18, 25, 32], [12, 19, 26, 33], [13, 20, 27, 34]
 ]
-// console.log(winningArrays)
+
 
 const player1 = 1
 const player2 = -1
@@ -35,18 +35,17 @@ const startBtn = document.querySelector('#start-button')
 
 
 
-// const result = document.querySelectorAll()
-// const startButton = document.querySelectorAll()
+
 
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-// boardCircles.forEach(circle => circle.addEventListener('click', boardClick))
+
 
 resetBtn.addEventListener('click', init)
 boardCircles.addEventListener('click', handleClick)
 
-// startButton.addEventListener('click' ())
+
 
 /*-------------------------------- Functions --------------------------------*/
 init()
@@ -68,8 +67,10 @@ function init() {
 function handleClick (event){
   let id = event.target.id.replace('cir','')
 
+  const circleIndex = circlesToBottom(id)
+
   if (board[id] === null){
-    board[id] = playerTurn
+    board[circleIndex] = playerTurn
     playerTurn *= -1
     numOfTurns += 1
   
@@ -78,12 +79,21 @@ function handleClick (event){
     } else if (playerTurn === -1 && !winner){
       messages.textContent = "Player 2 turn"
     }
+  board[circleIndex] = playerTurn
 startBtn.setAttribute('hidden', true)
 resetBtn.removeAttribute('hidden')
 console.log(event.target.id)
   getWinner()
   render()
 }
+}
+
+function circlesToBottom(idx) {
+  for (let i = idx + 35; i <= 41 && i >= 0; i -= 7) {
+    if (board[i] === null) {
+      return i
+    }
+  }
 }
 
 
@@ -104,8 +114,8 @@ function getWinner(){
         winner = 'cyan'
         console.log('cyan wins')
       }
-      
-    if (numOfTurns === 41 && winner === null){
+
+    if (numOfTurns === 42 && winner === null){
         messages = "Oh tootles its a tie!"
         console.log('tie')
     } 
