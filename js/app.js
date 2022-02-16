@@ -20,10 +20,8 @@ const winningArrays = [
 ]
 
 
-const player1 = 1
-const player2 = -1
 /*-------------------------------- Variables --------------------------------*/
-let playerTurn, message, winner, numOfTurns, board, circleColor, circle, status
+let playerTurn, winner, numOfTurns, board, circleColor, player1, player2
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -33,19 +31,10 @@ const messages = document.querySelector('#message')
 const circles = document.querySelectorAll('.circle')
 const startBtn = document.querySelector('#start-button')
 
-
-
-
-
-
 /*----------------------------- Event Listeners -----------------------------*/
-
-
 
 resetBtn.addEventListener('click', init)
 boardCircles.addEventListener('click', handleClick)
-
-
 
 /*-------------------------------- Functions --------------------------------*/
 init()
@@ -67,10 +56,8 @@ function init() {
 function handleClick (event){
   let id = event.target.id.replace('cir','')
 
-  const circleIndex = circlesToBottom(id)
-
   if (board[id] === null){
-    board[circleIndex] = playerTurn
+    board[id] = playerTurn
     playerTurn *= -1
     numOfTurns += 1
   
@@ -79,7 +66,6 @@ function handleClick (event){
     } else if (playerTurn === -1 && !winner){
       messages.textContent = "Player 2 turn"
     }
-  board[circleIndex] = playerTurn
 startBtn.setAttribute('hidden', true)
 resetBtn.removeAttribute('hidden')
 console.log(event.target.id)
@@ -87,16 +73,6 @@ console.log(event.target.id)
   render()
 }
 }
-
-function circlesToBottom(idx) {
-  for (let i = idx + 35; i <= 41 && i >= 0; i -= 7) {
-    if (board[i] === null) {
-      return i
-    }
-  }
-}
-
-
 
 function getWinner(){
   for (let i = 0; i < winningArrays.length; i++){
