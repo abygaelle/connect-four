@@ -5,7 +5,7 @@ Play the game<a href="https://connect-four-abygaelle.surge.sh/" target="_blank">
 ____
 ### Rules of Connect Four:
 1. You will start as Player 1
-2. Get four circles in a row either horizontal or vertical to win the game.
+2. Get four circles in a row either horizontal, vertical or diagonally to win the game.
 3. HAVE FUN!!!🥳
 ______________
 ### Desktop View:
