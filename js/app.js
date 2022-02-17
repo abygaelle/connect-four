@@ -46,7 +46,7 @@ function init() {
   numOfTurns = 0
   winner = 0
 
-  messages.textContent = "Welcome to Connect Four! Click the button  to start the game"
+  messages.textContent = "Welcome to Connect Four!"
   resetBtn.setAttribute('hidden', true)
   render()
   
@@ -85,7 +85,7 @@ function getWinner(){
       }
       else if(board[a]+board[b]+board[c]+board[d] === -4){
         messages.textContent = 'Player 2 wins!'
-        winner = 'cyan'
+        winner = 'orange'
         
       }
 
@@ -101,7 +101,7 @@ function render() {
       if (cir === 1) {
         circleColor = 'pink'
       } else if (cir === -1) {
-        circleColor = 'cyan'
+        circleColor = 'orange'
       } else if (cir === null){
         circleColor = 'white'
       }
