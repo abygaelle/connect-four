@@ -18,10 +18,17 @@ html {
 }
 
 body {
-  
+  --body-bg-img: url('../assets/darkmode-pic.jpg');
+  --light-dark-btn-content: "Dark Mode";
+  --light-dark-btn-bg: #1d1e2b;
+  --inverted-btn-text-color: #eaeaea;
+  --board-bg-color: #807c09;
+  --board-border: 5px solid black;
+  --cirlce-bg-color: black;
+  -circle-border-bg: #807c09;
   text-align: center;
   font-family: 'Shizuru', cursive;
-  background-color: white;
+  background-color: rgb(47, 45, 45);
   background-image: url('../assets/pineapples-and-penguins-artwork-aog7ih5stbvaw2eu.png');
   background-size: contain;
   background-size: cover;
@@ -37,8 +44,6 @@ body {
     background-repeat: no-repeat;
   }
 } */
-
-
 
 .board {
   display: flex;
@@ -60,7 +65,7 @@ body {
   border: solid 5px rgb(97, 181, 92);
 }
 
-#reset-button, #light-dark-button {
+#reset-button {
   width: 150px;
   font-size: 40px;
   /* background-color: red; */
