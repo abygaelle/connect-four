@@ -29,6 +29,8 @@ const resetBtn = document.querySelector('#reset-button')
 const boardCircles = document.querySelector('.board')
 const messages = document.querySelector('#message')
 const circles = document.querySelectorAll('.circle')
+const lightDarkBtn = document.querySelector("#light-dark-button")
+const body = document.querySelector("body")
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -50,6 +52,10 @@ function init() {
   resetBtn.setAttribute('hidden', true)
   render()
   
+}
+
+function toggleLightDark() {
+  body.className = body.className === "dark" ? "" : "dark"
 }
 
 function handleClick (event){
