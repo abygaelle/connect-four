@@ -37,6 +37,7 @@ const body = document.querySelector("body")
 
 resetBtn.addEventListener('click', init)
 boardCircles.addEventListener('click', handleClick)
+lightDarkBtn.addEventListener("click", toggleLightDark)
 
 /*-------------------------------- Functions --------------------------------*/
 init()
@@ -57,6 +58,16 @@ function init() {
 function toggleLightDark() {
   body.className = body.className === "dark" ? "" : "dark"
 }
+
+function checkDarkPref() {
+  if (
+    window.matchMedia("(prefers-color-scheme:dark)").matches &&
+    body.className !== "dark"
+  ) {
+    toggleLightDark()
+  }
+}
+checkDarkPref()
 
 function handleClick (event){
   let id = event.target.id.replace('cir','')
@@ -87,11 +98,14 @@ function getWinner(){
       if(board[a]+board[b]+board[c]+board[d] === 4){
         messages.textContent = 'Player 1 wins!'
         winner = 'pink'
+        confetti.start(4000)
         
       }
       else if(board[a]+board[b]+board[c]+board[d] === -4){
         messages.textContent = 'Player 2 wins!'
         winner = 'orange'
+        confetti.start(4000)
+        
         
       }
 

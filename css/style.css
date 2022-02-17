@@ -18,6 +18,7 @@ html {
 }
 
 body {
+  
   text-align: center;
   font-family: 'Shizuru', cursive;
   background-color: white;
@@ -26,6 +27,15 @@ body {
   background-size: cover;
   background-size: 100%;
   background-repeat: no-repeat;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image: url('../assets/darkmode-pic.jpg');
+    background-size: contain;
+    background-size: cover;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
 }
 
 
@@ -50,7 +60,7 @@ body {
   border: solid 5px rgb(97, 181, 92);
 }
 
-#reset-button {
+#reset-button, #light-dark-button {
   width: 150px;
   font-size: 40px;
   /* background-color: red; */
@@ -61,10 +71,12 @@ body {
 
 h1 {
   font-size: 100px;
+  color: rgb(6, 72, 14);
 }
 
 #message {
-  font-size: 30px;
+  font-size: 40px;
+  color: rgb(8, 116, 34);
 }
 
 
