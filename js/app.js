@@ -43,7 +43,15 @@ lightDarkBtn.addEventListener("click", toggleLightDark)
 init()
 
 function init() {
-  board = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+  board = [null, null, null, null, 
+    null, null, null, null, null, 
+    null, null, null, null, null, 
+    null, null, null, null, null, 
+    null, null, null, null, null,
+    null, null, null, null, null, 
+    null, null, null, null, null,
+    null, null, null, null, null, 
+    null, null, null]
 
   playerTurn = 1
   numOfTurns = 0
@@ -70,16 +78,20 @@ function checkDarkPref() {
 checkDarkPref()
 
 function handleClick (event){
-  let id = event.target.id.replace('cir','')
-  const correctIdx = checkPlacement(id)
-  board[correctIdx] = playerTurn
+  let id = parseInt(event.target.id.replace('cir',''))
+  const circleIdx = checkPlacement(id)
+  board[circleIdx] = playerTurn
   
-
-  if (board[id] === null){
-    board[id] = playerTurn
-    playerTurn *= -1
-    numOfTurns += 1
+  console.log(board.length)
+  console.log(id)
+  playerTurn *= -1
   
+  numOfTurns += 1
+  // if (board[id] === null){
+  //   board[id] = playerTurn
+  //   playerTurn *= -1
+  //   numOfTurns += 1
+  // }
   if (playerTurn === 1 && !winner){
       messages.textContent = "Player 1 turn"
     } else if (playerTurn === -1 && !winner){
@@ -90,10 +102,11 @@ console.log(event.target.id)
   getWinner()
   render()
 }
-}
+
 function checkPlacement(idx){
   for(let i = idx + 35; i <= 41 && i>= 0; i-=7){
     if(board[i] === null){
+      console.log(idx+35)
       return i
     }
   }
