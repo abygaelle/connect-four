@@ -52,7 +52,6 @@ body {
 }
 
 .circle{
-
   width: 90px;
   height: 90px;
   background-color: var(--circle-bg);

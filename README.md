@@ -1,4 +1,4 @@
-# connect-four
+# Connect-Four
 Play the game<a href="https://connect-four-abygaelle.surge.sh/" target="_blank"> here</a>.
 
 
@@ -11,14 +11,16 @@ ____
 ______________
 ### Desktop View:
 ___
-![Browser Display](https://imgur.com/2FY00At.jpg)
+## Light Mode:
+![Browser Light Display](https://imgur.com/2FY00At.jpg)
 
-
+## Dark Mode:
+![Browser Dark Display](https://imgur.com/91JQ3ik.jpg)
 
 ___
 ### Motivation:
 ___
-I decided to learn how to create the Connect-Four because during my childhood with my friends and family we used to have game nights with plenty of games and Connect-Four was one of them. Creating the game Connect-Four brings back great memories.
+I decided to learn how to create the game Connect-Four because during my childhood with my friends and family we used to have game nights and Connect-Four was one of the many games that we played. I thought that having an online version will be great to share with my family and friends. Creating the game Connect-Four brings back great memories.
 
 _______
 ## Technologies:
