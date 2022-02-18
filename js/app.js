@@ -91,7 +91,7 @@ function handleClick (event){
     } else if (playerTurn === -1 && !winner){
       messages.textContent = "Player 2 turn"
     }
-resetBtn.removeAttribute('hidden')
+  resetBtn.removeAttribute('hidden')
   getWinner()
   render()
 }
