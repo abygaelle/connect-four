@@ -31,6 +31,7 @@ const messages = document.querySelector('#message')
 const circles = document.querySelectorAll('.circle')
 const lightDarkBtn = document.querySelector("#light-dark-button")
 const body = document.querySelector("body")
+const celebration = new Audio('../audio/celebration.mp3')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -112,12 +113,16 @@ function getWinner(){
       if(board[a]+board[b]+board[c]+board[d] === 4){
         messages.textContent = 'Player 1 wins!'
         winner = 'pink'
+        celebration.volume = .10
+        celebration.play()
         confetti.start(4000)
         
       }
       else if(board[a]+board[b]+board[c]+board[d] === -4){
         messages.textContent = 'Player 2 wins!'
         winner = 'orange'
+        celebration.volume = .20
+        celebration.play()
         confetti.start(4000)
         
         

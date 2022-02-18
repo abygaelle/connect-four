@@ -62,7 +62,7 @@ body {
 #reset-button, #light-dark-button {
   width: 150px;
   font-size: 40px;
-  /* background-color: red; */
+  background-color: rgb(127, 135, 207);
   color: white;
   border-radius: 5px;
   cursor: pointer;
