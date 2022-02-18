@@ -21,7 +21,7 @@ const winningArrays = [
 
 
 /*-------------------------------- Variables --------------------------------*/
-let playerTurn, winner, numOfTurns, board, circleColor, player1, player2
+let playerTurn, winner, numOfTurns, board, circleColor
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -113,7 +113,7 @@ function getWinner(){
       if(board[a]+board[b]+board[c]+board[d] === 4){
         messages.textContent = 'Player 1 wins!'
         winner = 'pink'
-        celebration.volume = .10
+        celebration.volume = .20
         celebration.play()
         confetti.start(4000)
         
@@ -128,7 +128,7 @@ function getWinner(){
         
       }
 
-    if (numOfTurns === 42 && winner === null){
+      if (numOfTurns === 42 && winner === null){
         messages = "Oh tootles its a tie!"
         console.log('tie')
     } 

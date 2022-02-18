@@ -18,66 +18,100 @@ html {
 }
 
 body {
+  --body-bg-img: url('../assets/pineapples-and-penguins-artwork-aog7ih5stbvaw2eu.png');
+  --light-dark-btn-content: "Dark Mode";
+  --board-bg: rgb(97, 181, 92);
+  --board-border: 5px solid rgb(255, 255, 255);
+  --circle-bg: rgb(255, 255, 255);
+  --circle-border: solid 5px rgb(97, 181, 92);
+  --reset-btn-color: white;
+  --light-dark-btn: white;
+  --h1-color: rgb(255, 166, 0);
+  --message-color: rgb(8, 23, 163);
+  --reset-btn-bg: #ffc107;
+  --light-dark-btn-bg: #ffc107;
+
   text-align: center;
   font-family: 'Shizuru', cursive;
-  background-color: white;
-  background-image: url('../assets/pineapples-and-penguins-artwork-aog7ih5stbvaw2eu.png');
+  background-color: rgb(255, 255, 255);
+  background-image: var(--body-bg-img);
   background-size: contain;
   background-size: cover;
   background-size: 100%;
   background-repeat: no-repeat;
 }
-/* @media (prefers-color-scheme: dark) {
-  body {
-    background-image: url('../assets/darkmode-pic.jpg');
-    background-size: contain;
-    background-size: cover;
-    background-size: 100%;
-    background-repeat: no-repeat;
-  }
-} */
-
-
 
 .board {
   display: flex;
-  border: 1px solid;
   height: 590px;
   width: 670px;
-  background-color: rgb(97, 181, 92);
-  border: 5px solid rgb(255, 255, 255);
+  background-color: var(--board-bg);
+  border: var(--board-border);
   flex-wrap: wrap;
   margin: auto;
 }
 
-  .circle{
+.circle{
+
   width: 90px;
   height: 90px;
-  background-color: white;
+  background-color: var(--circle-bg);
   border-radius: 50%;
   margin: auto;
-  border: solid 5px rgb(97, 181, 92);
+  border: var(--circle-border);
 }
 
-#reset-button, #light-dark-button {
+#reset-button {
   width: 150px;
   font-size: 40px;
-  background-color: rgb(127, 135, 207);
-  color: white;
+  color: var(--reset-btn-color);
+  background-color: var(--reset-btn-bg);
   border-radius: 5px;
   cursor: pointer;
 }
 
+#light-dark-button {
+  width: 230px;
+  font-size: 40px;
+  color: var(--light-dark-btn);
+  background-color: var(--light-dark-btn-bg);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#light-dark-button::after {
+  border: none;
+  content: var(--light-dark-btn-content);
+  background-color: var();
+}
+
 h1 {
   font-size: 100px;
-  color: rgb(6, 72, 14);
+  color: var(--h1-color);
+  font-weight: bold;
 }
 
 #message {
   font-size: 40px;
-  color: rgb(8, 116, 34);
+  color: var(--message-color);
+  font-weight: 500;
 }
 
+body.dark {
+  --body-bg-img: url('../assets/darkmode-pic.jpg');
+  --light-dark-btn-content: "Light Mode";
+  --board-bg: rgb(0, 0, 0);
+  --board-border: 5px solid #ffc107;
+  --circle-bg: rgb(73, 4, 33);
+  --circle-border: solid 5px rgb(0, 0, 0);
+  --reset-btn-color: #ffc107;
+  --reset-btn-bg: #000000;
+  --light-dark-btn-bg: #000000;
+  --light-dark-btn: #ffc107;
+  --h1-color: #ffa500;
+  --message-color: rgb(248, 248, 250);
+
+}
 
 
 
